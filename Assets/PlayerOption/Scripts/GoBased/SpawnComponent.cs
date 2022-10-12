@@ -11,7 +11,7 @@ namespace PlayerOption.Scripts.GoBased
         [ContextMenu("Spawn")]
         public void Spawn()
         {
-            SpawnUtils.Spawn(prefab, target.position);
+            SpawnUtils.Spawn(prefab, target.position, target.rotation);
         }
 
         public void SetPrefab(GameObject ptefab)
