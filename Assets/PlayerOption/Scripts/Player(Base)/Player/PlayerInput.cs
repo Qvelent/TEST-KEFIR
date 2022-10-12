@@ -32,5 +32,13 @@ namespace PlayerOption.Scripts.Player_Base_.Player
                 player.FireBullet();
             }
         }
+        
+        public void OnFireLaser(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                player.FireLaser();
+            }
+        }
     }
 }

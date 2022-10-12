@@ -448,6 +448,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1066972654}
   prefab: {fileID: 2130785753730668681, guid: 16a721b15b0913e4498e7e12941e1c29, type: 3}
+--- !u!1 &1108189743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1108189744}
+  - component: {fileID: 1108189745}
+  m_Layer: 0
+  m_Name: LaserPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1108189744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108189743}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.005, y: 0.384, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1343507395}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1108189745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108189743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f40a6a68216ed54ea0ad15ed996c2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1108189744}
+  prefab: {fileID: 388221165737959633, guid: c6238f59d8bb0f0478c324e00c970910, type: 3}
 --- !u!1 &1343507394
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +530,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1066972654}
+  - {fileID: 1108189744}
   m_Father: {fileID: 888908471}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -565,6 +612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnBullet: {fileID: 1066972655}
+  spawnLaser: {fileID: 1108189745}
   speed: 0
   speedRotate: 100
   acceleration: 5
@@ -683,6 +731,23 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 892a6e26-d782-4df8-9e83-dce312f0edbd
     m_ActionName: Player/BulletFire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1343507397}
+        m_TargetAssemblyTypeName: PlayerOption.Scripts.Player_Base_.Player.PlayerInput,
+          Assembly-CSharp
+        m_MethodName: OnFireLaser
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 77c6235b-24e2-4a30-9a49-3228e0680f7d
+    m_ActionName: Player/LaserFire[/Mouse/rightButton,/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

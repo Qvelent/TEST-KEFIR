@@ -6,6 +6,7 @@ namespace PlayerOption.Scripts.Player_Base_.Player
     public class Player : MonoBehaviour
     {
         [SerializeField] private SpawnComponent spawnBullet;
+        [SerializeField] private SpawnComponent spawnLaser;
         
         [SerializeField] private float speed;
         [SerializeField] private float speedRotate = 100f;
@@ -58,6 +59,11 @@ namespace PlayerOption.Scripts.Player_Base_.Player
         public void FireBullet()
         {
             spawnBullet.Spawn();
+        }
+
+        public void FireLaser()
+        {
+            spawnLaser.Spawn();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace PlayerOption.Scripts.GoBased
         {
             SpawnUtils.Spawn(prefab, target.position, target.rotation);
         }
-
+        
         public void SetPrefab(GameObject ptefab)
         {
             prefab = ptefab;
