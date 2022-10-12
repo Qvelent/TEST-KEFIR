@@ -1,9 +1,12 @@
+using PlayerOption.Scripts.GoBased;
 using UnityEngine;
 
-namespace PlayerOption.Scripts.Player
+namespace PlayerOption.Scripts.Player_Base_.Player
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField] private SpawnComponent spawnBullet;
+        
         [SerializeField] private float speed;
         [SerializeField] private float speedRotate = 100f;
         [SerializeField] private float acceleration = 5f;
@@ -50,6 +53,11 @@ namespace PlayerOption.Scripts.Player
         {
             _rotate = Input.GetAxis("Horizontal");
             transform.Rotate(0,0,-_rotate * speedRotate * Time.deltaTime);
+        }
+
+        public void FireBullet()
+        {
+            spawnBullet.Spawn();
         }
     }
 }

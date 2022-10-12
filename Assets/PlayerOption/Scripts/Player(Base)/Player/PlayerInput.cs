@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace PlayerOption.Scripts.Player
+namespace PlayerOption.Scripts.Player_Base_.Player
 {
     public class PlayerInput : MonoBehaviour
     {
@@ -23,6 +23,14 @@ namespace PlayerOption.Scripts.Player
         public void OnRotateLeftAndRightInput(InputAction.CallbackContext context)
         {
             player.MoveRotate();
+        }
+        
+        public void OnFireBullet(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                player.FireBullet();
+            }
         }
     }
 }
