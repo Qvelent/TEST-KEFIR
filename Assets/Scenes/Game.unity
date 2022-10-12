@@ -383,6 +383,9 @@ GameObject:
   - component: {fileID: 1343507399}
   - component: {fileID: 1343507398}
   - component: {fileID: 1343507397}
+  - component: {fileID: 1343507400}
+  - component: {fileID: 1343507401}
+  - component: {fileID: 1343507402}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -469,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb20abb6e2113454497edd21836ff456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1343507398}
 --- !u!114 &1343507398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +485,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223ac0c8df6c06e42a9c0e5dccdff802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  speedRotate: 100
+  acceleration: 5
+  speedFMax: 30
 --- !u!114 &1343507399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,17 +515,21 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1343507397}
+        m_TargetAssemblyTypeName: PlayerOption.Scripts.Player.PlayerInput, Assembly-CSharp
+        m_MethodName: OnMovementForwardInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8325a417-2d22-482d-ba3b-72752b80af41
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5f950ae4-9312-4bdc-8c1f-eb9041d76bf3
-    m_ActionName: Player/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 89992cf7-b47c-4cc7-91dd-ddffff451036
-    m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 6414ff71-fd6b-4d05-9c4a-5bf0efdeb24a
@@ -559,11 +570,86 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: dffded9a-c5d8-4755-ba2f-cdcee658c69d
     m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 0
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1343507397}
+        m_TargetAssemblyTypeName: PlayerOption.Scripts.Player.PlayerInput, Assembly-CSharp
+        m_MethodName: OnRotateLeftAndRightInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fa308000-cdd0-4ae1-b68a-dd6e3d787558
+    m_ActionName: Player/Rotate[/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1343507400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343507394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b86be0821e8d847b29dde7a8f828f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &1343507401
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343507394}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1343507402
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343507394}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.98, y: 0.75}
+    newSize: {x: 0.98, y: 0.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.98, y: 0.75}
+  m_EdgeRadius: 0
 --- !u!1 &1637947776
 GameObject:
   m_ObjectHideFlags: 0
