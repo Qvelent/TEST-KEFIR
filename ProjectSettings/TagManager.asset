@@ -44,3 +44,6 @@ TagManager:
   - name: BG
     uniqueID: 676744801
     locked: 0
+  - name: Effects
+    uniqueID: 173542687
+    locked: 0
