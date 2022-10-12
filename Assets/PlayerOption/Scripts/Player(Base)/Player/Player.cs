@@ -63,7 +63,7 @@ namespace PlayerOption.Scripts.Player_Base_.Player
 
         public void FireLaser()
         {
-            spawnLaser.Spawn();
+            spawnLaser.SpawnLaser();
         }
     }
 }
