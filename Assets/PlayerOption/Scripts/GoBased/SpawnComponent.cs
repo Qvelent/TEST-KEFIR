@@ -21,11 +21,10 @@ namespace PlayerOption.Scripts.GoBased
             StartCoroutine(SpawnLaserCoroutine());
         }
 
-        public IEnumerator SpawnLaserCoroutine()
+        private IEnumerator SpawnLaserCoroutine()
         {
-            GameObject go = SpawnUtils.Spawn(prefab, target.position, Quaternion.identity);
-            //go.transform.SetParent(target.transform);
-            go.transform.SetPositionAndRotation(target.transform.position, gameObject.transform.rotation);
+            GameObject go = SpawnUtils.Spawn(prefab, target.position, target.rotation);
+            go.transform.SetParent(target.transform);
             yield return new WaitForSeconds(3f);
             Destroy(go);
         }
