@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3091105806504374847}
   - component: {fileID: 1125296106097312085}
   - component: {fileID: -4399751612745703435}
+  - component: {fileID: -2492389407372917879}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -124,3 +125,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1453624beefe8543afe242f804d7fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpDelta: -100
+--- !u!114 &-2492389407372917879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388221165737959633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3761483d28a2f4f8123d708cc5d5d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Meteor
+  _layer:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4399751612745703435}
+        m_TargetAssemblyTypeName: PlayerOption.Scripts.Health.ModifyHealthComponent,
+          Assembly-CSharp
+        m_MethodName: ApplyHealthDelta
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

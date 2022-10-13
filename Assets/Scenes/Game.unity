@@ -507,8 +507,8 @@ GameObject:
   - component: {fileID: 1279504057}
   - component: {fileID: 1279504059}
   - component: {fileID: 1279504058}
-  - component: {fileID: 1279504061}
   - component: {fileID: 1279504060}
+  - component: {fileID: 1279504061}
   m_Layer: 0
   m_Name: Meteor-Big
   m_TagString: Meteor
@@ -653,18 +653,6 @@ MonoBehaviour:
   onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1279504061}
-        m_TargetAssemblyTypeName: PlayerOption.Scripts.GoBased.SpawnComponent, Assembly-CSharp
-        m_MethodName: Spawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1279504060}
         m_TargetAssemblyTypeName: PlayerOption.Scripts.GoBased.DestroyObjectComponent,
           Assembly-CSharp
@@ -700,11 +688,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 1279504054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f40a6a68216ed54ea0ad15ed996c2e7, type: 3}
+  m_Script: {fileID: 11500000, guid: eb3761483d28a2f4f8123d708cc5d5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  prefab: {fileID: 0}
+  _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1279504058}
+        m_TargetAssemblyTypeName: PlayerOption.Scripts.Health.ModifyHealthComponent,
+          Assembly-CSharp
+        m_MethodName: ApplyHealthDelta
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1343507394
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +728,7 @@ GameObject:
   - component: {fileID: 1343507402}
   - component: {fileID: 1343507403}
   - component: {fileID: 1343507404}
+  - component: {fileID: 1343507405}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1043,7 +1050,33 @@ MonoBehaviour:
       m_Calls: []
   onDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1343507405}
+        m_TargetAssemblyTypeName: PlayerOption.Scripts.GoBased.DestroyObjectComponent,
+          Assembly-CSharp
+        m_MethodName: DestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1343507405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343507394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f179ae4b8e4fd5e469d6e02a44f80f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObject: {fileID: 1343507394}
 --- !u!1 &1637947776
 GameObject:
   m_ObjectHideFlags: 0

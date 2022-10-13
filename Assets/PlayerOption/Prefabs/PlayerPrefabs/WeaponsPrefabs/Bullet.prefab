@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2130785753730668684}
   - component: {fileID: 5491699923462556012}
   - component: {fileID: -4487487566296342958}
+  - component: {fileID: 3924377772878542250}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -175,10 +176,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3761483d28a2f4f8123d708cc5d5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tag: 
+  _tag: Meteor
   _layer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   _action:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5491699923462556012}
+        m_TargetAssemblyTypeName: PlayerOption.Scripts.Health.ModifyHealthComponent,
+          Assembly-CSharp
+        m_MethodName: ApplyHealthDelta
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3924377772878542250}
+        m_TargetAssemblyTypeName: PlayerOption.Scripts.GoBased.DestroyObjectComponent,
+          Assembly-CSharp
+        m_MethodName: DestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3924377772878542250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130785753730668681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f179ae4b8e4fd5e469d6e02a44f80f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObject: {fileID: 2130785753730668681}
