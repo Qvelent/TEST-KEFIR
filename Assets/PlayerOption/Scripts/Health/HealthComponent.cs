@@ -23,14 +23,13 @@ namespace PlayerOption.Scripts.Health
             if (hpDelta < 0)
             {
                 onDamage?.Invoke();
-                AudioPlayer.instance.PlayDamageClip();
+                AudioPlayer.Instance.PlayDamageClip();
                 PlayHitEffect();
-                Debug.Log("Оставшееся хп: " + maxHealth);
             }
             
             if (maxHealth <= 0)
             {
-                AudioPlayer.instance.PlayExplosionClip();
+                AudioPlayer.Instance.PlayExplosionClip();
                 onDie?.Invoke();
             }
         }

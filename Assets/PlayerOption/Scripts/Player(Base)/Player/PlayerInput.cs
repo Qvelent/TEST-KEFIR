@@ -29,20 +29,16 @@ namespace PlayerOption.Scripts.Player_Base_.Player
         
         public void OnFireBullet(InputAction.CallbackContext context)
         {
-            if (context.performed)
-            {
-                audioPlayer.PlayShootingClip();
-                player.FireBullet();
-            }
+            if (!context.performed) return;
+            audioPlayer.PlayShootingClip();
+            player.FireBullet();
         }
         
         public void OnFireLaser(InputAction.CallbackContext context)
         {
-            if (context.performed)
-            {
-                audioPlayer.PlayShootingClip();
-                player.FireLaser();
-            }
+            if (!context.performed) return;
+            audioPlayer.PlayShootingClip();
+            player.FireLaser();
         }
     }
 }

@@ -1,4 +1,4 @@
-
+using System;
 using PlayerOption.Scripts.GoBased;
 using UnityEngine;
 
@@ -8,6 +8,7 @@ namespace PlayerOption.Scripts.Player_Base_.Player
     {
         [SerializeField] private SpawnComponent spawnBullet;
         [SerializeField] private SpawnComponent spawnLaser;
+        [SerializeField] private GameObject fireEngine;
         
         
         [SerializeField] private float speed;
@@ -17,25 +18,24 @@ namespace PlayerOption.Scripts.Player_Base_.Player
         public float speedFMax = 30f;
         private float _rotate;
         private bool _speeding;
-        
+
+        private void Awake()
+        {
+            fireEngine.SetActive(false);
+        }
 
         private void FixedUpdate()
         {
             UpdateSpeed();
             MoveRotate();
         }
-
-        public void TakeDamage()
-        {
-            //_audioPlayer.PlayDamageClip();
-        }
-        
         private void UpdateSpeed()
         {
             if (_speeding)
             {
                 if (speed < speedFMax)
                 {
+                    fireEngine.SetActive(true);
                     speed += acceleration * Time.deltaTime;
                 }
                 transform.Translate(0, speed * Time.deltaTime, 0);
@@ -44,6 +44,7 @@ namespace PlayerOption.Scripts.Player_Base_.Player
             {
                 if (speed > 0)
                 {
+                    fireEngine.SetActive(false);
                     speed -= acceleration * Time.deltaTime;
                 }
                 transform.Translate(0, speed * Time.deltaTime, 0);
@@ -54,8 +55,7 @@ namespace PlayerOption.Scripts.Player_Base_.Player
         {
             _speeding = accelerationState;
         }
-
-
+        
         public void MoveRotate()
         {
             _rotate = Input.GetAxis("Horizontal");
