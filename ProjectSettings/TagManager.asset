@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Meteor
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: Effects
     uniqueID: 173542687
+    locked: 0
+  - name: Meteors
+    uniqueID: 4117708139
     locked: 0
   - name: Player
     uniqueID: 2785483253

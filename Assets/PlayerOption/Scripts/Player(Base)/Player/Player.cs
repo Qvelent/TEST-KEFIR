@@ -23,6 +23,11 @@ namespace PlayerOption.Scripts.Player_Base_.Player
             UpdateSpeed();
             MoveRotate();
         }
+
+        public void TakeDamage()
+        {
+            
+        }
         
         private void UpdateSpeed()
         {
