@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4218288909942413225}
-  prefab: {fileID: 7643466308220441572, guid: f4a5acaf51c20d24f835e51d6639e853, type: 3}
+  prefab: {fileID: 6627037775175242049, guid: e9439cb11f62a5a4b9a315e14959409a, type: 3}
 --- !u!114 &609086410
 MonoBehaviour:
   m_ObjectHideFlags: 0
