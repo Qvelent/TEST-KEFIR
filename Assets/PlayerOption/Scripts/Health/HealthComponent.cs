@@ -1,4 +1,5 @@
 using System;
+using PlayerOption.Scripts.Player_Base_.Player;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,10 +10,10 @@ namespace PlayerOption.Scripts.Health
         [SerializeField] private int maxHealth;
         [SerializeField] private UnityEvent onDamage;
         [SerializeField] public UnityEvent onDie;
+        [SerializeField] private ParticleSystem _explosion;
 
         public int Health => maxHealth;
         
-
         public void ModifyHealth(int hpDelta)
         {
             if (maxHealth <= 0) return;
@@ -22,12 +23,24 @@ namespace PlayerOption.Scripts.Health
             if (hpDelta < 0)
             {
                 onDamage?.Invoke();
+                AudioPlayer.instance.PlayDamageClip();
+                PlayHitEffect();
                 Debug.Log("Оставшееся хп: " + maxHealth);
             }
             
             if (maxHealth <= 0)
             {
+                AudioPlayer.instance.PlayExplosionClip();
                 onDie?.Invoke();
+            }
+        }
+        
+        void PlayHitEffect()
+        {
+            if(_explosion != null)
+            {
+                ParticleSystem istance = Instantiate(_explosion, transform.position , Quaternion.identity);
+                Destroy(istance.gameObject, istance.main.duration + istance.main.startLifetime.constantMax);
             }
         }
 

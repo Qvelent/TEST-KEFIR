@@ -6,6 +6,7 @@ namespace PlayerOption.Scripts.Player_Base_.Player
     public class PlayerInput : MonoBehaviour
     {
         [SerializeField] private Player player;
+        [SerializeField] private AudioPlayer audioPlayer;
         
         public void OnMovementForwardInput(InputAction.CallbackContext context)
         {
@@ -22,6 +23,7 @@ namespace PlayerOption.Scripts.Player_Base_.Player
 
         public void OnRotateLeftAndRightInput(InputAction.CallbackContext context)
         {
+            
             player.MoveRotate();
         }
         
@@ -29,6 +31,7 @@ namespace PlayerOption.Scripts.Player_Base_.Player
         {
             if (context.performed)
             {
+                audioPlayer.PlayShootingClip();
                 player.FireBullet();
             }
         }
@@ -37,6 +40,7 @@ namespace PlayerOption.Scripts.Player_Base_.Player
         {
             if (context.performed)
             {
+                audioPlayer.PlayShootingClip();
                 player.FireLaser();
             }
         }

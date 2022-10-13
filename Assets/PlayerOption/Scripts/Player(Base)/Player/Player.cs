@@ -1,3 +1,4 @@
+
 using PlayerOption.Scripts.GoBased;
 using UnityEngine;
 
@@ -8,16 +9,16 @@ namespace PlayerOption.Scripts.Player_Base_.Player
         [SerializeField] private SpawnComponent spawnBullet;
         [SerializeField] private SpawnComponent spawnLaser;
         
+        
         [SerializeField] private float speed;
         [SerializeField] private float speedRotate = 100f;
         [SerializeField] private float acceleration = 5f;
         
         public float speedFMax = 30f;
-        
         private float _rotate;
-        
         private bool _speeding;
         
+
         private void FixedUpdate()
         {
             UpdateSpeed();
@@ -26,7 +27,7 @@ namespace PlayerOption.Scripts.Player_Base_.Player
 
         public void TakeDamage()
         {
-            
+            //_audioPlayer.PlayDamageClip();
         }
         
         private void UpdateSpeed()
