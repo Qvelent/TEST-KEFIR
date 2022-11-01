@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PlayerOption.Scripts.Meteors
@@ -11,9 +10,9 @@ namespace PlayerOption.Scripts.Meteors
 		[SerializeField] private int startingAsteroidCount = 1;
 		
 
-		public void Spawn(int level)
+		public void Spawn()
 		{
-			int numAsteroids = startingAsteroidCount + level;
+			int numAsteroids = startingAsteroidCount;
 			for (int i = 0; i < numAsteroids; i++)
 			{
 				Instantiate(asteroidPrefab, GetOffScreenPosition(), GetOffScreenRotation());

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PlayerOption.Scripts.Managers
 {
@@ -14,26 +15,16 @@ namespace PlayerOption.Scripts.Managers
         [SerializeField] private LevelManager levelManager;
 
         [SerializeField] private GameObject gameHolder;
-
-        [SerializeField] private int startingLives = 3;
-
-        public int Lives { get; private set; }
-
+        
         public int Points { get; private set; }
-
-        public int Level
-        {
-            get { return levelManager.Level; }
-        }
-
+        
         void Awake()
         {
             DontDestroyOnLoad(gameObject);
-            
+
             gameHolder.SetActive(false);
 
             levelManager.EventPoints += OnLevelPoints;
-            levelManager.EventPlayerDied += OnLevelLives;
         }
 
         public void StartGame()
@@ -46,26 +37,12 @@ namespace PlayerOption.Scripts.Managers
 
         public void ResetGame()
         {
-            Points = 0;
-            Lives = startingLives;
-            levelManager.Reset();
-
+            //SceneManager.LoadScene(0);
         }
 
         private void OnLevelPoints(int points)
         {
             Points += points;
         }
-
-        private void OnLevelLives()
-        {
-            Lives -= 1;
-            if (Lives >= 0)
-            {
-                Debug.Log($"Player lives: {Lives}");
-            }
-
-        }
-
     }
 }

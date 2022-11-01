@@ -2,6 +2,7 @@ using System;
 using PlayerOption.Scripts.Meteors;
 using PlayerOption.Scripts.Player_Base_.Player;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PlayerOption.Scripts.Managers
 {
@@ -10,30 +11,22 @@ namespace PlayerOption.Scripts.Managers
         public event Action<int> EventPoints;
         public event Action EventPlayerDied;
 
-        [SerializeField] private int level;
-
-        public int Level
-        {
-            get { return level; }
-            private set { level = value; }
-        }
+        
 
         [SerializeField] private SpawnMeteors meteorsSpawner;
 
         [SerializeField] private Player player;
-
-        [SerializeField] private float startLevelDelay = 3.0f;
+        private bool _isAlive;
         
 
         public void Reset()
         {
-            level = 1;
+            //SceneManager.LoadScene(0);
         }
 
         public void StartLevel()
         {
-            meteorsSpawner.Spawn(level);
-            //EventStarted?.Invoke();
+            meteorsSpawner.Spawn();
         }
         
 
@@ -41,8 +34,8 @@ namespace PlayerOption.Scripts.Managers
         {
             EventPoints?.Invoke(points);
             
-            level += 1;
-            Invoke("StartLevel", startLevelDelay);
+            
+            Invoke("StartLevel", 3f);
         }
 
         private void OnPlayerDied()

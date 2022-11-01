@@ -13,7 +13,6 @@ namespace PlayerOption.Scripts.Utils
                 container = new GameObject(ContainerName);
             
             return Object.Instantiate(prefab, position, rotate, container.transform);
-           // return Object.Instantiate(prefab, position, Quaternion.identity, container.transform);
         }
     }
 }
